@@ -1,0 +1,61 @@
+.main {
+  transition: 200ms margin-left;
+
+  padding-left: 16px;
+  padding-right: 16px;
+
+  @media (min-width: $screen-md) {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  @media (min-width: $screen-lg) {
+    width: auto;
+    margin-left: $sidebar-width;
+  }
+}
+
+.main__heading {
+  margin-top: 24px;
+  margin-bottom: 24px;
+
+  margin-left: -16px;
+  margin-right: -16px;
+
+  @media (min-width: $screen-md) {
+    margin-left: -24px;
+    margin-right: -24px;
+  }
+}
+
+.main__navigation {
+  margin-top: 32px;
+  margin-bottom: 32px;
+
+  margin-left: -16px;
+  margin-right: -16px;
+
+  @media (min-width: $screen-md) {
+    margin-left: -24px;
+    margin-right: -24px;
+  }
+}
+
+.main__section {
+  margin-top: 16px;
+
+  margin-left: -16px;
+  margin-right: -16px;
+
+  @media (min-width: $screen-md) {
+    margin-left: -24px;
+    margin-right: -24px;
+  }
+}
+
+.main__footer {
+  margin-left: -16px;
+  margin-right: -16px;
+
+  margin-top: 16px;
+}

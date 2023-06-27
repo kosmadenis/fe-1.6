@@ -1,0 +1,74 @@
+.navigation {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    /* Выход на 2пкс вверх и вниз, чтобы перкрывать рамки (border, outline) */
+    height: 40px + 2px + 2px;
+    top: -2px;
+    pointer-events: none;
+  }
+
+  &::before {
+    left: 0px;
+    background: linear-gradient(
+      to left,
+      rgba(248, 248, 248, 0) 0%,
+      rgba(248, 248, 248, 1) 85%
+    );
+  }
+
+  &::after {
+    right: 0px;
+    background: linear-gradient(
+      to right,
+      rgba(248, 248, 248, 0) 0%,
+      rgba(248, 248, 248, 1) 85%
+    );
+  }
+}
+
+.navigation__list {
+  margin-top: 0;
+  margin-bottom: 0;
+  display: flex;
+  list-style: none;
+  padding: 0;
+  overflow-x: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  font-size: 16px;
+  color: $color-text-alt;
+
+  @media (min-width: $screen-lg) {
+    flex-wrap: wrap;
+  }
+}
+
+.navigation__item {
+  display: block;
+  padding: 8px;
+  margin-right: 8px;
+  border-radius: 6px;
+  font-weight: 500;
+  border: 2px solid rgba(0, 0, 0, 0);
+  white-space: nowrap;
+
+  &:hover,
+  &:active,
+  &:focus {
+    border: 2px solid $color-border-alt;
+    background-color: $color-bg-alt;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.navigation__list > li:last-child > .navigation__item {
+  margin-right: 0;
+}

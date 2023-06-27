@@ -1,0 +1,29 @@
+.round-button {
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+
+  &__text {
+    margin-right: 8px;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  &__img {
+    transition: 50ms filter, 50ms transform;
+
+    width: 40px;
+    height: 40px;
+  }
+
+  &:active > &__img,
+  &:hover > &__img,
+  &:focus > &__img {
+    filter: contrast(0.8);
+  }
+
+  &:active > &__img {
+    transform: scale(0.95);
+  }
+}

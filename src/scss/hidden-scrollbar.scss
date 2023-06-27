@@ -1,0 +1,10 @@
+.hidden-scrollbar {
+  // Визуальное скрытие, работает в Firefox.
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+
+  // Полноценное скрытие, работает в Webkit-based.
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

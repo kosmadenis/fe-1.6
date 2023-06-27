@@ -1,0 +1,40 @@
+.expand {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+
+  &::before {
+    content: "";
+    width: 24px;
+    height: 24px;
+    background-image: url("../img/expand.svg");
+    transition: 200ms transform;
+  }
+
+  &--expanded::before {
+    transform: rotate(180deg);
+  }
+}
+
+.expand__text {
+  position: absolute;
+  left: 24px + 4px; // ширина иконки + отступ
+  transition: 200ms opacity;
+}
+
+.expand > .expand__text--active {
+  opacity: 1;
+}
+
+.expand > .expand__text--inactive {
+  opacity: 0;
+}
+
+.expand--expanded > .expand__text--active {
+  opacity: 0;
+}
+.expand--expanded > .expand__text--inactive {
+  opacity: 1;
+}

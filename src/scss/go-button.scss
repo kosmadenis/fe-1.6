@@ -1,0 +1,24 @@
+.go-button {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -0.15px;
+  text-transform: uppercase;
+  color: $color-text-inv;
+
+  height: 32px;
+  border-radius: 16px;
+  padding-left: 16px;
+  padding-right: 8px;
+  background-color: $color-accent-alt;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &::after {
+    content: url("../img/goside.svg");
+    width: 24px;
+    height: 24px;
+    margin-left: 8px;
+  }
+}

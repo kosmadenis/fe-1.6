@@ -1,0 +1,334 @@
+$cards-detailed-first-width: 350px;
+$cards-detailed-second-width: 75px;
+$cards-detailed-third-width: 85px;
+$cards-detailed-button-width: 100px;
+
+.swiper-pagination {
+  font-size: 0;
+  position: static;
+  margin: 16px 0 0;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet.swiper-pagination-bullet {
+  margin-bottom: 8px;
+}
+
+.cards-box {
+  --swiper-pagination-bullet-size: 12px;
+  --swiper-pagination-color: #{$color-pagination-active};
+  --swiper-pagination-bullet-inactive-color: #{$color-pagination-inactive};
+  --swiper-pagination-bullet-inactive-opacity: 1;
+
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 100%;
+    top: -7.5%;
+    z-index: 5;
+    pointer-events: none;
+
+    @media (min-width: $screen-md) {
+      display: none;
+    }
+  }
+
+  &::before {
+    left: 0;
+    background: linear-gradient(to right, $color-bg 16%, transparent);
+  }
+
+  &::after {
+    right: 0;
+    background: linear-gradient(to left, $color-bg 16%, transparent);
+  }
+}
+
+.cards-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @media (min-width: $screen-md) {
+    display: flex;
+    overflow: clip;
+
+    &--small,
+    &--tall {
+      flex-wrap: wrap;
+      transition: 200ms max-height;
+
+      & > :nth-child(1n + 4) {
+        display: none;
+        opacity: 0;
+      }
+    }
+
+    &--expanded > :nth-child(1n + 4) {
+      display: block;
+    }
+
+    &--opaque > :nth-child(1n + 4) {
+      opacity: 1;
+    }
+
+    &--detailed {
+      flex-direction: column;
+      flex-wrap: nowrap;
+      background-color: $color-bg-alt;
+      border-radius: 6px;
+    }
+  }
+
+  @media (min-width: $screen-lg) {
+    &--small,
+    &--tall {
+      & > :nth-child(4) {
+        display: block;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.card-wrapper {
+  transition: 200ms opacity;
+
+  width: auto;
+  height: auto;
+  margin-right: 16px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @media (min-width: $screen-md) {
+    margin-right: 24px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+
+    width: calc((100% - 24px * 2) / 3);
+  }
+
+  @media (min-width: $screen-md) and (max-width: ($screen-lg - 1px)) {
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+  }
+
+  @media (min-width: $screen-lg) {
+    margin-right: 32px;
+    width: calc((100% - 32px * 3) / 4);
+
+    &:nth-child(4n) {
+      margin-right: 0;
+    }
+  }
+
+  &--detailed {
+    @media (min-width: $screen-md) {
+      width: 100%;
+      margin-top: 0;
+      margin-bottom: 0;
+
+      // Разделитель элементов списка
+      &::after {
+        content: "";
+        height: 1px;
+        width: 90%;
+        display: block;
+        background-color: $color-divider;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      &:last-of-type::after {
+        display: none;
+      }
+    }
+  }
+}
+
+.card {
+  width: 240px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: $color-bg-alt;
+  padding: 16px;
+  border-radius: 6px;
+  border: 1px solid $color-divider;
+  box-sizing: border-box;
+
+  transition: 100ms filter, 100ms transform;
+
+  &:hover,
+  &:focus {
+    filter: brightness(0.975);
+  }
+
+  &:active {
+    filter: brightness(0.95);
+    transform: scale(0.975);
+  }
+
+  @media (min-width: $screen-md) {
+    width: 100%;
+  }
+}
+
+.card__logo {
+  max-height: 52px;
+  max-width: 128px;
+}
+
+.card__text {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.card__button {
+  font-size: 0;
+  min-width: 40px;
+  width: 40px;
+  height: 40px;
+  background: url("../img/go.svg") center/100% no-repeat;
+}
+
+.card--tall {
+  height: 150px;
+  flex-direction: column;
+
+  & > .card__text {
+    align-self: start;
+  }
+
+  & > .card__button {
+    align-self: end;
+  }
+}
+
+.card--detailed {
+  height: 200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "first first"
+    "second second"
+    "third button";
+
+  @media (min-width: $screen-md) {
+    display: flex;
+    height: 64px;
+    border-radius: 0;
+    border: none;
+
+    & > * {
+      margin-left: auto;
+    }
+
+    & > :first-child {
+      margin-left: 8px;
+    }
+  }
+}
+
+.card__detailed-text {
+  display: block;
+
+  &::before {
+    display: block;
+    font-weight: 500;
+    line-height: 16px;
+    color: $color-text-alt;
+
+    @media (min-width: $screen-md) {
+      display: none;
+    }
+  }
+
+  &--first {
+    grid-area: first;
+
+    &::before {
+      content: "Ремонтные услуги";
+    }
+
+    @media (min-width: $screen-md) {
+      width: $cards-detailed-first-width;
+    }
+  }
+
+  &--second {
+    grid-area: second;
+
+    &::before {
+      content: "Цена";
+    }
+
+    @media (min-width: $screen-md) {
+      width: $cards-detailed-second-width;
+    }
+  }
+
+  &--third {
+    grid-area: third;
+
+    &::before {
+      content: "Срок";
+    }
+
+    @media (min-width: $screen-md) {
+      width: $cards-detailed-third-width;
+    }
+  }
+}
+
+.card__detailed-button {
+  grid-area: button;
+  width: $cards-detailed-button-width;
+}
+
+.cards-head {
+  list-style: none;
+  margin: 0;
+  padding: 16px;
+
+  display: none;
+
+  @media (min-width: $screen-md) {
+    display: flex;
+  }
+}
+
+.cards-head__item {
+  color: $color-text-alt;
+  font-weight: 500;
+
+  margin-left: auto;
+
+  &:first-child {
+    margin-left: 8px;
+  }
+
+  &--first {
+    width: $cards-detailed-first-width;
+  }
+
+  &--second {
+    width: $cards-detailed-second-width;
+  }
+
+  &--third {
+    width: $cards-detailed-third-width;
+  }
+
+  &--button {
+    width: $cards-detailed-button-width + 16px + 8px;
+  }
+}

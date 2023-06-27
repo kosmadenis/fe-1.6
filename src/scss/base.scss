@@ -1,0 +1,57 @@
+$screen-sm: 320px;
+$screen-md: 768px;
+$screen-lg: 1440px;
+
+$color-bg: #F8F8F8;
+$color-bg-alt: #FFFFFF;
+
+$color-text: #1B1C21;
+$color-text-alt: #7E7E82;
+$color-text-inv: #FFFFFF;
+
+$color-border: #D9FFF5;
+$color-border-alt: #B8FFEC;
+
+$color-accent: #41F6D7;
+$color-accent-alt: #FF3E79;
+
+$color-divider: #EAEAEA;
+
+$color-pagination-inactive: #DDDDDD;
+$color-pagination-active: #B5B6BC;
+
+$sidebar-width: 320px;
+$modal-width: 440px;
+
+@font-face {
+  font-family: "TT Lakes";
+  src: url("../fonts/TTLakes-Regular.woff");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "TT Lakes";
+  src: url("../fonts/TTLakes-Medium.woff");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "TT Lakes";
+  src: url("../fonts/TTLakes-Bold.woff");
+  font-weight: 700;
+}
+
+:any-link {
+  text-decoration: none;
+  color: unset;
+}
+
+:root {
+  background-color: $color-bg;
+
+  font-family: "TT Lakes", "Helvetica", "sans-serif";
+  color: $color-text;
+
+  font-size: 14px;
+  letter-spacing: 0.2px;
+}

@@ -1,0 +1,40 @@
+.footer {
+  padding: 16px;
+  border-top: 1px solid $color-border;
+
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $screen-md) {
+    flex-direction: row;
+  }
+}
+
+.footer__text {
+  margin: 0;
+  margin-bottom: 16px;
+  color: $color-text-alt;
+  text-align: center;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  @media (min-width: $screen-md) {
+    margin-bottom: 0;
+    margin-right: 16px;
+    width: 33%;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    &--left {
+      text-align: left;
+    }
+
+    &--right {
+      text-align: right;
+    }
+  }
+}

@@ -1,0 +1,165 @@
+.sidebar {
+  background-color: $color-bg-alt;
+
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 32px;
+
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  overflow-y: auto;
+  z-index: 20;
+
+  width: 100%;
+
+  transform: translateX(-100%);
+  transition: 200ms transform, 200ms box-shadow, 200ms width;
+
+  &--open {
+    box-shadow: 16px 0 50px 0 rgba(14, 24, 80, 0.2);
+    transform: none;
+  }
+
+  @media (min-width: $screen-md) {
+    width: $sidebar-width;
+  }
+
+  @media (min-width: $screen-lg) {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-header__button {
+  margin-top: 24px;
+  margin-bottom: 24px;
+
+  &:first-child {
+    margin-right: 16px;
+  }
+
+  &:last-child {
+    margin-left: auto;
+  }
+}
+
+#sidebar-close {
+  transition: 200ms width, 200ms margin-right;
+
+  width: 40px;
+
+  > img {
+    width: 100%;
+    height: 100%;
+
+    @media (max-width: ($screen-md - 1px)) {
+      min-width: 40px;
+    }
+  }
+
+  @media (min-width: $screen-lg) {
+    width: 0;
+    margin-right: 0;
+  }
+}
+
+.sidebar-header__logo {
+  width: 97px;
+  height: 51px;
+  margin-right: 16px;
+}
+
+.sidebar-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar__links {
+  margin-top: 24px;
+}
+
+.sidebar-links__item {
+  position: relative;
+  display: block;
+  margin-bottom: 32px;
+  font-weight: 500;
+
+  /* Плавный переход для цвета текста */
+  transition: 200ms color;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -25%;
+    left: -28px;
+    height: 150%;
+    width: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background-color: $color-accent;
+
+    /* Плавный переход для бирюзовой штучки слева */
+    transition: 200ms left;
+  }
+
+  &:active,
+  &:hover,
+  &:focus {
+    color: $color-text-alt;
+  }
+
+  &:active::before,
+  &:hover::before,
+  &:focus::before {
+    left: -24px;
+  }
+}
+
+.sidebar__footer {
+  margin-top: auto;
+}
+
+.sidebar-footer__buttons {
+  display: flex;
+}
+
+.sidebar-footer__button {
+  margin-right: 16px;
+}
+
+.sidebar-footer__email-wrapper {
+  margin-top: 16px;
+}
+
+.sidebar-footer__phone-wrapper {
+  font-size: 24px;
+  margin-top: 12px;
+  font-weight: 700;
+}
+
+.sidebar-langs {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 40px;
+}
+
+.sidebar-langs__item {
+  position: relative;
+  margin-right: 7px;
+
+  &--current {
+    color: $color-text-alt;
+  }
+}

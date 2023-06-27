@@ -1,0 +1,77 @@
+.section {
+  border-top: 1px solid $color-border;
+}
+
+.section__heading {
+  margin: 0;
+  font-weight: normal;
+  font-size: 16px;
+  color: $color-text-alt;
+  text-transform: uppercase;
+  background: linear-gradient(to right, $color-bg 0%, $color-bg-alt 100%);
+
+  padding: 16px;
+
+  @media (min-width: $screen-md) {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+.section__content {
+  margin-top: 16px;
+  padding: 0 16px;
+
+  @media screen {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+.section__expand {
+  display: none;
+  margin-left: 16px;
+  margin-top: 16px;
+
+  @media (min-width: $screen-md) {
+    display: flex;
+    margin-left: 24px;
+  }
+}
+
+.section__text {
+  max-width: 420px;
+
+  margin-left: 16px;
+  margin-right: 16px;
+
+  @media (min-width: $screen-md) {
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+}
+
+.section__link {
+  display: block;
+
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  line-height: 24px;
+
+  margin-left: 16px;
+  margin-right: 16px;
+
+  @media (min-width: $screen-md) {
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+
+  &::after {
+    content: url("../img/more.svg");
+    width: 24px;
+    height: 28px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
