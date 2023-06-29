@@ -72,6 +72,8 @@ new Sidebar(
 /* Модалки */
 
 const feedbackModalElement = document.getElementById("modal-feedback");
+const feedbackModalFocusElement =
+  feedbackModalElement.querySelector(".modal__autofocus");
 const feedbackModalOpenButtons = [
   document.getElementById("header-open-feedback"),
   document.getElementById("sidebar-open-feedback"),
@@ -83,11 +85,14 @@ const feedbackModalCloseButtons = [
 new Modal(
   modalsPopupOverlay,
   feedbackModalElement,
+  feedbackModalFocusElement,
   feedbackModalOpenButtons,
   feedbackModalCloseButtons
 );
 
 const callModalElement = document.getElementById("modal-call");
+const callModalFocusElement =
+  callModalElement.querySelector(".modal__autofocus");
 const callModalOpenButtons = [
   document.getElementById("header-open-call"),
   document.getElementById("sidebar-open-call"),
@@ -97,6 +102,7 @@ const callModalCloseButtons = [document.getElementById("modal-call-close")];
 new Modal(
   modalsPopupOverlay,
   callModalElement,
+  callModalFocusElement,
   callModalOpenButtons,
   callModalCloseButtons
 );

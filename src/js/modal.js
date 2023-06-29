@@ -2,10 +2,18 @@ class Modal {
   #isOpen = false;
   #popupOverlay;
   #element;
+  #focusElement;
 
-  constructor(popupOverlay, modalElement, modalOpenButtons, modalCloseButtons) {
+  constructor(
+    popupOverlay,
+    modalElement,
+    focusElement,
+    modalOpenButtons,
+    modalCloseButtons
+  ) {
     this.#popupOverlay = popupOverlay;
     this.#element = modalElement;
+    this.#focusElement = focusElement;
 
     popupOverlay.registerPopup(this);
 
@@ -39,6 +47,9 @@ class Modal {
     this.#popupOverlay.pushLayer();
 
     this.#element.classList.add("modal--displayed");
+
+    this.#focusElement.focus();
+
     setTimeout(() => {
       this.#element.classList.add("modal--open");
     }, 1);
