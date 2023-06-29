@@ -409,10 +409,11 @@
           <h1 class="heading__text">Обратная свзяь</h1>
         </div>
         <form class="modal__form">
-          <input type="text" placeholder="Имя" class="modal__input modal__autofocus" />
-          <input type="tel" placeholder="Телефон" class="modal__input" />
-          <input type="email" placeholder="Электронная почта" class="modal__input" />
+          <input name="name" type="text" placeholder="Имя" class="modal__input modal__autofocus" />
+          <input name="phone_number" type="tel" placeholder="Телефон" class="modal__input" />
+          <input name="email" type="email" placeholder="Электронная почта" class="modal__input" />
           <textarea
+            name="message_text"
             type="text"
             placeholder="Сообщение"
             class="modal__input modal__input--large"
@@ -433,7 +434,7 @@
           <h1 class="heading__text">Заказать звонок</h1>
         </div>
         <form class="modal__form">
-          <input type="tel" placeholder="Телефон" class="modal__input modal__autofocus" />
+          <input name="phone_number" type="tel" placeholder="Телефон" class="modal__input modal__autofocus" />
           <p class="modal__text">
             Нажимая “отправить”, вы даете согласие на
             <a href="#" class="modal__link">обработку персональных данных</a> и соглашаетесь с нашей
